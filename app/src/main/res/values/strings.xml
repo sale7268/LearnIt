@@ -6,5 +6,9 @@
     <string name ="back4app_app_id">hFfaBT2TJqlfJM2HbNN9K8Dzg95UF1NPDGLlu2LP</string>
 
     <string name ="back4app_client_key">HFxnDmQztijW92BwMF2g6fp97ut5LpES80Ei8VV6</string>
+    <string name="edEmailAddressHint">Email/Username</string>
+    <string name="LearnIt">Learn it</string>
+    <string name="CreateAccount">New user? create account</string>
+    <string name="Password">Password</string>
 
 </resources>
