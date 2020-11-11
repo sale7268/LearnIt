@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
     }
 
+    //when login button is clicked this function is used to check whether user is in the database
     public void login(View view){
         if(TextUtils.isEmpty((etEmail.getText()))) {
             etEmail.setError("Email is required");
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     } else {
+                        //if user login doesn't work or exist print the ParseException e message
                         ParseUser.logOut();
                         Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                     }
