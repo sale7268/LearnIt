@@ -40,7 +40,8 @@ public class Post{
 
     @Override
     public String toString() {
-        return "Title: " + title + "\n" + "Content:  "+ content + "\n";
+        return "Title: " + title + "\n" + "Content:  " + content + "\n" +
+                "Created By: " + createdBy + "\n";
     }
 
 }
