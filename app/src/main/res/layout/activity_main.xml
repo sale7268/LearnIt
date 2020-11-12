@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff5722"
+    android:background="#A7E1FF"
     tools:context=".MainActivity">
 
     <pl.droidsonroids.gif.GifImageView
@@ -40,7 +40,7 @@
         android:text="@string/LearnIt"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#000000"
+        android:textColor="#E8E8E8"
         android:textSize="36sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/etEmailAddress"
@@ -84,10 +84,10 @@
         android:layout_width="211dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:background="#25FDFDFD"
-        android:text="@string/Login"
-        android:textColor="#000000"
+        android:background="#233339"
         android:onClick="login"
+        android:text="@string/Login"
+        android:textColor="#FEF2DE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
