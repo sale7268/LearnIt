@@ -37,6 +37,11 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void readPosts(View view){
+        Intent intent = new Intent(HomeActivity.this,ReadPostsActivity.class);
+        startActivity(intent);
+    }
+
     //function to logout
     public void logout(View view) {
         ProgressDialog progress = new ProgressDialog(this);
