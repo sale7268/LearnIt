@@ -19,6 +19,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //Once user is logged in options are displayed along with username and email
+
         ParseUser currentUser = ParseUser.getCurrentUser();
 
         tvName = findViewById(R.id.tvName);
@@ -30,6 +32,12 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    public void createPost(View view){
+        Intent intent = new Intent(HomeActivity.this,CreatePostActivity.class);
+        startActivity(intent);
+    }
+
+    //function to logout
     public void logout(View view) {
         ProgressDialog progress = new ProgressDialog(this);
         progress.setMessage("Loading...");
