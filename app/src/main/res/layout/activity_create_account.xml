@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F37B57"
+    android:background="#A7E1FF"
     tools:context=".CreateAccountActivity">
 
     <EditText
@@ -68,7 +68,8 @@
         android:layout_width="213dp"
         android:layout_height="55dp"
         android:layout_marginTop="40dp"
-        android:background="#FA5C2A"
+        android:background="#233339"
+        android:textColor="#FEF2DE"
         android:text="@string/SignUp"
         android:onClick="Signup"
         app:layout_constraintBottom_toBottomOf="parent"
