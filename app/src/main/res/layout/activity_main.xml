@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff5722"
+    android:background="#A7E1FF"
     tools:context=".MainActivity">
 
     <pl.droidsonroids.gif.GifImageView
@@ -29,8 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.58" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/APP_NAME_LEARN_IT"
@@ -40,7 +39,7 @@
         android:text="@string/LearnIt"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#000000"
+        android:textColor="#E8E8E8"
         android:textSize="36sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/etEmailAddress"
@@ -56,14 +55,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="92dp"
+        android:onClick="CreateAccount"
         android:text="@string/CreateAccount"
         android:textColor="#000000"
         android:textSize="12sp"
-        android:onClick="CreateAccount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.684" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -84,10 +84,10 @@
         android:layout_width="211dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
-        android:background="#25FDFDFD"
-        android:text="@string/Login"
-        android:textColor="#000000"
+        android:background="#233339"
         android:onClick="login"
+        android:text="@string/Login"
+        android:textColor="#FEF2DE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

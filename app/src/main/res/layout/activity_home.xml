@@ -10,7 +10,7 @@
         android:id="@+id/tvName"
         android:layout_width="165dp"
         android:layout_height="58dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="144dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,14 +27,46 @@
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="logout"
-        android:onClick="logout"
+        android:id="@+id/createPostBtn"
+        android:layout_width="139dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="52dp"
+        android:background="#233339"
+        android:onClick="createPost"
+        android:text="Create Post"
+        android:textColor="#FEF2DE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+    <Button
+        android:id="@+id/readPostsBtn"
+        android:layout_width="138dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:background="#233339"
+        android:onClick="readPosts"
+        android:text="Read Posts"
+        android:textColor="#FEF2DE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createPostBtn" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="130dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:background="#233339"
+        android:onClick="logout"
+        android:text="logout"
+        android:textColor="#FEF2DE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/readPostsBtn"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
