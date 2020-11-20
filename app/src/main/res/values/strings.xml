@@ -15,5 +15,6 @@
     <string name="Email">Email Address</string>
     <string name="ConfirmPassword">Confirm Password</string>
     <string name="SignUp">Sign up</string>
+    <string name="textview">TextView</string>
 
 </resources>
