@@ -13,8 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".ListAdapterActivity"></activity>
         <activity android:name=".HomePageActivity" />
+     master
         <activity android:name=".ReadPostsActivity" />
         <activity android:name=".CreatePostActivity" />
         <activity android:name=".HomeActivity" />
