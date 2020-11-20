@@ -33,11 +33,11 @@
         android:id="@+id/userPost"
         android:layout_width="379dp"
         android:layout_height="142dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernamePost" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitlePost" />
 
     <ImageView
         android:id="@+id/commentBtn"
@@ -51,6 +51,16 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_comment_foreground"
         android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/tvTitlePost"
+        android:layout_width="380dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernamePost" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
