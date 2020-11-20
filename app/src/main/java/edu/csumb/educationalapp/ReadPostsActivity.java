@@ -35,6 +35,7 @@ public class ReadPostsActivity extends AppCompatActivity {
 
     ArrayList<Post> postsList = new ArrayList<>();
     ListView listView;
+    static String objectID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,10 @@ public class ReadPostsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i,long l) {
-                Toast.makeText(ReadPostsActivity.this, "clicked item:" + i + " " + postsList.get(i).toString(), Toast.LENGTH_LONG).show();
+                objectID = postsList.get(i).getCreatedBy();
+//                Toast.makeText(ReadPostsActivity.this, "clicked item:" + i + " " + postsList.get(i).toString(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(ReadPostsActivity.this, CommentActivity.class);
+                startActivity(intent);
             }
         });
 
