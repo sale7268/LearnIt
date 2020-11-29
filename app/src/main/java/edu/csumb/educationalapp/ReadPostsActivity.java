@@ -76,7 +76,6 @@ public class ReadPostsActivity extends AppCompatActivity {
 
                 }
             });
-
             builder.show();
         }
 
