@@ -53,8 +53,9 @@ public class ReadPostsActivity extends AppCompatActivity {
                 String title = result.getString("title");
                 String content = result.getString("content");
                 String createdBy = result.getString("createdBy");
+                String objectId = result.getObjectId();
 
-                Post post = new Post(title,content,createdBy);
+                Post post = new Post(objectId,title,content,createdBy);
                 postsList.add(post);
 
             }
@@ -76,7 +77,6 @@ public class ReadPostsActivity extends AppCompatActivity {
 
                 }
             });
-
             builder.show();
         }
 
@@ -87,13 +87,13 @@ public class ReadPostsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i,long l) {
-                objectID = postsList.get(i).getCreatedBy();
-//                Toast.makeText(ReadPostsActivity.this, "clicked item:" + i + " " + postsList.get(i).toString(), Toast.LENGTH_LONG).show();
+                //saving the post that was clicked's ID to be used in the next activity
+                objectID = postsList.get(i).getObjectId();
+                //Toast.makeText(ReadPostsActivity.this, "clicked item:" + i + " " + postsList.get(i).toString(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(ReadPostsActivity.this, CommentActivity.class);
                 startActivity(intent);
             }
         });
-
     }
 }
 
