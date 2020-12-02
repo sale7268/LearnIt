@@ -29,7 +29,7 @@ class ListAdapterActivity extends RecyclerView.Adapter<ListAdapterActivity.ViewH
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.activity_create_post,viewGroup,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.activity_list_adapter,viewGroup,false);
         return new ListAdapterActivity.ViewHolder(view);
     }
 
