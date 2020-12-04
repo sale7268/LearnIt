@@ -2,16 +2,14 @@ package edu.csumb.educationalapp;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -20,36 +18,20 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePageActivity extends Fragment {
+public class HomePageActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private ListAdapterActivity postAdapter;
-    private List<Post> postLists;
-
-    private List<String> followingList;
+    ArrayList<Post> postsList = new ArrayList<>();
+    ListView listView;
+    static String objectID;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_home_page, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home_page);
 
-        recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        postLists = new ArrayList<>();
-        postAdapter = new ListAdapterActivity(getContext(), postLists);
-        recyclerView.setAdapter(postAdapter);
-
-        readPosts();
-
-        return view;
-    }
-
-    private void readPosts() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
+
+        query.setLimit(10); // limit to at most 10 results
 
         try {
             List<ParseObject> results = query.find();
@@ -61,16 +43,44 @@ public class HomePageActivity extends Fragment {
                 String objectId = result.getObjectId();
 
                 Post post = new Post(objectId,title,content,createdBy);
-                postLists.add(post);
+                postsList.add(post);
 
             }
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        postAdapter.notifyDataSetChanged();
+        listView=(ListView)findViewById(R.id.listview);
 
+        if(postsList.isEmpty()){
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(HomePageActivity.this);
+
+            String msg = "There are currently no posts to display.";
+            builder.setTitle(msg);
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            builder.show();
+        }
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, postsList);
+
+        listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //saving the post that was clicked's ID to be used in the next activity
+                objectID = postsList.get(i).getObjectId();
+                //Toast.makeText(ReadPostsActivity.this, "clicked item:" + i + " " + postsList.get(i).toString(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(HomePageActivity.this, CommentActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-
 
 }
