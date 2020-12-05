@@ -8,18 +8,17 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="186dp"
-        android:layout_height="79dp"
+        android:layout_width="261dp"
+        android:layout_height="78dp"
         android:hint="Title"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16" />
+        app:layout_constraintVertical_bias="0.125" />
 
     <TextView
         android:id="@+id/tvContent"
@@ -47,17 +46,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvContent"
         app:layout_constraintVertical_bias="0.043" />
-
-    <ListView
-        android:id="@+id/commentList"
-        android:layout_width="411dp"
-        android:layout_height="184dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnComment"
-        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnComment"

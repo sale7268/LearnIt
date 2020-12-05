@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -27,12 +30,13 @@ public class CommentActivity extends AppCompatActivity {
     TextView Resource;
     EditText newComment;
     Button CommentButton;
-    ListView commentList;
+    List<String>comments;
     String objectID;
     ParseObject post;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
 
@@ -40,7 +44,6 @@ public class CommentActivity extends AppCompatActivity {
         tvContent = findViewById(R.id.tvContent);
         Resource = findViewById(R.id.tvResource);
         CommentButton = findViewById(R.id.btnComment);
-        commentList = findViewById(R.id.commentList);
         newComment = findViewById(R.id.etNewComment);
 
         objectID = ReadPostsActivity.objectID;
@@ -52,7 +55,7 @@ public class CommentActivity extends AppCompatActivity {
             public void done(ParseObject object, ParseException e) {
                 if (object == null) {
                     Log.d("Post", "Request failed.");
-                } else {
+                }else {
                     String title = object.getString("title");
                     String content = object.getString("content");
                     String createdBy = object.getString("createdBy");
@@ -73,7 +76,6 @@ public class CommentActivity extends AppCompatActivity {
                 if(newCommentString.equals("")){
                     Toast.makeText(CommentActivity.this, "Empty Comment", Toast.LENGTH_SHORT).show();
                 }else {
-
                     ParseObject myComment = new ParseObject("Comment");
                     myComment.put("content",newCommentString);
 
