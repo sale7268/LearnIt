@@ -2,12 +2,22 @@ package edu.csumb.educationalapp;
 
 public class Comment {
 
+    private String postID;
     private String createdBy;
     private String content;
 
-    public Comment(String createdBy, String content) {
+    public Comment(String createdBy, String content,String postID) {
         this.createdBy = createdBy;
         this.content = content;
+        this.postID = postID;
+    }
+
+    public String getPostID() {
+        return postID;
+    }
+
+    public void setPostID(String postID) {
+        this.postID = postID;
     }
 
     public String getCreatedBy() {
@@ -28,9 +38,6 @@ public class Comment {
 
     @Override
     public String toString() {
-        return "Comment{" +
-                "createdBy='" + createdBy + '\'' +
-                ", content='" + content + '\'' +
-                '}';
+        return "Comment By: " + createdBy + "\n" + content + "\n";
     }
 }

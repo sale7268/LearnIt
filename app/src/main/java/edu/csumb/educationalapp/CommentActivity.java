@@ -76,10 +76,15 @@ public class CommentActivity extends AppCompatActivity {
                 if(newCommentString.equals("")){
                     Toast.makeText(CommentActivity.this, "Empty Comment", Toast.LENGTH_SHORT).show();
                 }else {
-                    ParseObject myComment = new ParseObject("Comment");
-                    myComment.put("content",newCommentString);
+                    //ADDING COMMENT TO THE DATABASE
+                    //CONTENT,POSTID AND THE USER'S USERNAME IS ADDED TO COMMENT CLASS
 
-                    myComment.put("post", post);
+                    ParseObject myComment = new ParseObject("Comment");
+                    String username = ParseUser.getCurrentUser().getUsername();
+
+                    myComment.put("content",newCommentString);
+                    myComment.put("postID",objectID);
+                    myComment.put("createdBy",username);
 
                     myComment.saveInBackground();
 

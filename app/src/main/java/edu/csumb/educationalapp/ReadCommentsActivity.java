@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,9 +28,9 @@ public class ReadCommentsActivity extends AppCompatActivity {
 
     ListView listView;
     ArrayList<Comment> commentsList = new ArrayList<>();
-    //List<String> comments;
     String objectID;
-    ParseObject post = new ParseObject("Post");
+    Button addCommentBtn;
+    Button returnBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,29 +38,23 @@ public class ReadCommentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_read_comments);
 
         objectID = ReadPostsActivity.objectID;
+        addCommentBtn = findViewById(R.id.addCommentBtn);
+        returnBtn = findViewById(R.id.return_button);
 
-        ParseQuery<ParseObject> postQuery = ParseQuery.getQuery("Post");
-        //postQuery.whereEqualTo("objectId",objectID);
+        //GOING TO TRY PUTTING OBJECT ID WHEN CREATING COMMENT AND THEN SEARCHING FOR IT HERE
 
-        // Retrieve the object by id
-        postQuery.getInBackground(objectID, new GetCallback<ParseObject>() {
-            public void done(ParseObject entity, ParseException e) {
-                if (e == null) {
-                   post = entity;
-                }
-            }
-        });
-
+        /*
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Comment");
-        query.whereEqualTo("post",post);
+        query.whereEqualTo("postID",objectID);
 
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> commentList, ParseException e) {
                 if (e == null) {
                     for(ParseObject comment : commentList){
+                        String createdBy = comment.getString("createdBy");
                         String content = comment.getString("content");
-                        String commentID = comment.getObjectId();
-                        Comment commentObj = new Comment(commentID,content);
+
+                        Comment commentObj = new Comment(createdBy,content,objectID);
                         commentsList.add(commentObj);
                     }
                 } else {
@@ -67,6 +62,26 @@ public class ReadCommentsActivity extends AppCompatActivity {
                 }
             }
         });
+
+         */
+
+        ParseQuery<ParseObject> commentQuery = ParseQuery.getQuery("Comment");
+        commentQuery.whereEqualTo("postID",objectID);
+
+        commentQuery.setLimit(10); // limit to at most 10 results
+
+        try {
+            List<ParseObject> results = commentQuery.find();
+            for (ParseObject result : results) {
+                String content = result.getString("content");
+                String createdBy = result.getString("createdBy");
+
+                Comment commentObj = new Comment(createdBy,content,objectID);
+                commentsList.add(commentObj);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         listView=(ListView)findViewById(R.id.listview);
 
@@ -95,6 +110,22 @@ public class ReadCommentsActivity extends AppCompatActivity {
                 //saving the post that was clicked's ID to be used in the next activity
                 Toast.makeText(ReadCommentsActivity.this, "clicked item:" + i + " " + commentsList.get(i).toString(), Toast.LENGTH_LONG).show();
 
+            }
+        });
+
+        addCommentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ReadCommentsActivity.this,CommentActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        returnBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ReadCommentsActivity.this,HomeActivity.class);
+                startActivity(intent);
             }
         });
     }
