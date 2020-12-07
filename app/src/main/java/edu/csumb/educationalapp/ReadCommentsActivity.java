@@ -41,30 +41,6 @@ public class ReadCommentsActivity extends AppCompatActivity {
         addCommentBtn = findViewById(R.id.addCommentBtn);
         returnBtn = findViewById(R.id.return_button);
 
-        //GOING TO TRY PUTTING OBJECT ID WHEN CREATING COMMENT AND THEN SEARCHING FOR IT HERE
-
-        /*
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Comment");
-        query.whereEqualTo("postID",objectID);
-
-        query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> commentList, ParseException e) {
-                if (e == null) {
-                    for(ParseObject comment : commentList){
-                        String createdBy = comment.getString("createdBy");
-                        String content = comment.getString("content");
-
-                        Comment commentObj = new Comment(createdBy,content,objectID);
-                        commentsList.add(commentObj);
-                    }
-                } else {
-                    Log.d("comment", "Error: " + e.getMessage());
-                }
-            }
-        });
-
-         */
-
         ParseQuery<ParseObject> commentQuery = ParseQuery.getQuery("Comment");
         commentQuery.whereEqualTo("postID",objectID);
 
