@@ -49,7 +49,6 @@ public class ReadPostsActivity extends AppCompatActivity {
         try {
             List<ParseObject> results = query.find();
             for (ParseObject result : results) {
-
                 String title = result.getString("title");
                 String content = result.getString("content");
                 String createdBy = result.getString("createdBy");
@@ -90,7 +89,7 @@ public class ReadPostsActivity extends AppCompatActivity {
                 //saving the post that was clicked's ID to be used in the next activity
                 objectID = postsList.get(i).getObjectId();
                 //Toast.makeText(ReadPostsActivity.this, "clicked item:" + i + " " + postsList.get(i).toString(), Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(ReadPostsActivity.this, CommentActivity.class);
+                Intent intent = new Intent(ReadPostsActivity.this, ReadCommentsActivity.class);
                 startActivity(intent);
             }
         });
