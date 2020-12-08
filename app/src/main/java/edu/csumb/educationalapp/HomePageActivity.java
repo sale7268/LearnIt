@@ -25,7 +25,7 @@ public class HomePageActivity extends AppCompatActivity {
     static String objectID;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
@@ -36,7 +36,6 @@ public class HomePageActivity extends AppCompatActivity {
         try {
             List<ParseObject> results = query.find();
             for (ParseObject result : results) {
-
                 String title = result.getString("title");
                 String content = result.getString("content");
                 String createdBy = result.getString("createdBy");
@@ -77,10 +76,11 @@ public class HomePageActivity extends AppCompatActivity {
                 //saving the post that was clicked's ID to be used in the next activity
                 objectID = postsList.get(i).getObjectId();
                 //Toast.makeText(ReadPostsActivity.this, "clicked item:" + i + " " + postsList.get(i).toString(), Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(HomePageActivity.this, CommentActivity.class);
+                Intent intent = new Intent(HomePageActivity.this, ReadCommentsActivity.class);
                 startActivity(intent);
             }
         });
     }
+
 
 }

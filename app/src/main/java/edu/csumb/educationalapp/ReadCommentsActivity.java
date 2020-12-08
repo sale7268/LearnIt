@@ -1,13 +1,9 @@
 package edu.csumb.educationalapp;
 
-import androidx.annotation.RequiresPermission;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,8 +11,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.parse.FindCallback;
-import com.parse.GetCallback;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -37,33 +33,9 @@ public class ReadCommentsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_comments);
 
-        objectID = ReadPostsActivity.objectID;
+        objectID = HomePageActivity.objectID;
         addCommentBtn = findViewById(R.id.addCommentBtn);
         returnBtn = findViewById(R.id.return_button);
-
-        //GOING TO TRY PUTTING OBJECT ID WHEN CREATING COMMENT AND THEN SEARCHING FOR IT HERE
-
-        /*
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Comment");
-        query.whereEqualTo("postID",objectID);
-
-        query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> commentList, ParseException e) {
-                if (e == null) {
-                    for(ParseObject comment : commentList){
-                        String createdBy = comment.getString("createdBy");
-                        String content = comment.getString("content");
-
-                        Comment commentObj = new Comment(createdBy,content,objectID);
-                        commentsList.add(commentObj);
-                    }
-                } else {
-                    Log.d("comment", "Error: " + e.getMessage());
-                }
-            }
-        });
-
-         */
 
         ParseQuery<ParseObject> commentQuery = ParseQuery.getQuery("Comment");
         commentQuery.whereEqualTo("postID",objectID);
@@ -124,7 +96,7 @@ public class ReadCommentsActivity extends AppCompatActivity {
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ReadCommentsActivity.this,HomeActivity.class);
+                Intent intent = new Intent(ReadCommentsActivity.this,HomePageActivity.class);
                 startActivity(intent);
             }
         });
