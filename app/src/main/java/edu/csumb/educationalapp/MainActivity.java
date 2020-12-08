@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     progress.dismiss();
                     if (parseUser != null) {
                         Toast.makeText(MainActivity.this, "Welcome Back!", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                        Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
