@@ -22,6 +22,7 @@
         <activity android:name=".CommentActivity" />
         <activity android:name=".CreateAccountActivity" />
         <activity android:name=".StartupActivity" />
+        <activity android:name=".UserEditActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
