@@ -1,20 +1,16 @@
 package edu.csumb.educationalapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.FindCallback;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -46,7 +42,7 @@ public class CommentActivity extends AppCompatActivity {
         CommentButton = findViewById(R.id.btnComment);
         newComment = findViewById(R.id.etNewComment);
 
-        objectID = ReadPostsActivity.objectID;
+        objectID = HomePageActivity.objectID;
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
 
@@ -90,7 +86,7 @@ public class CommentActivity extends AppCompatActivity {
 
                     Toast.makeText(CommentActivity.this, "Comment Submitted", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(CommentActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(CommentActivity.this, HomePageActivity.class);
                     startActivity(intent);
                 }
             }
