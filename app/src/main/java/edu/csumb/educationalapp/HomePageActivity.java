@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class HomePageActivity extends AppCompatActivity {
     ArrayList<Post> postsList = new ArrayList<>();
     ListView listView;
     static String objectID;
+    ImageView userEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -77,6 +79,16 @@ public class HomePageActivity extends AppCompatActivity {
                 objectID = postsList.get(i).getObjectId();
                 //Toast.makeText(ReadPostsActivity.this, "clicked item:" + i + " " + postsList.get(i).toString(), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(HomePageActivity.this, ReadCommentsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        userEdit = findViewById(R.id.iv_userEdit);
+
+        userEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePageActivity.this, UserEditActivity.class);
                 startActivity(intent);
             }
         });
