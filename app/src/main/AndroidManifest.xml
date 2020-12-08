@@ -21,7 +21,6 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".CommentActivity" />
         <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".StartupActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
