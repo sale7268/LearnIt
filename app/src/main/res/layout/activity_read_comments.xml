@@ -19,8 +19,8 @@
         android:layout_height="71dp"
         android:background="@drawable/ic_menu_foreground"
         android:gravity="center_horizontal"
-        android:translationX="150"
-        android:translationY="140" />
+        android:translationX="150dp"
+        android:translationY="140dp" />
 
     <Button
         android:id="@+id/addCommentBtn"
@@ -28,7 +28,7 @@
         android:layout_height="76dp"
         android:background="@drawable/ic_comment_foreground"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:translationY="65" />
+        android:translationY="65dp" />
 
     <Button
         android:id="@+id/btnDeletePost"
@@ -36,7 +36,7 @@
         android:layout_height="50dp"
         android:layout_weight="1"
         android:background="@android:drawable/ic_menu_delete"
-        android:translationX="300"
-        android:translationY="-10" />
+        android:translationX="300dp"
+        android:translationY="-10dp" />
 
 </LinearLayout>
