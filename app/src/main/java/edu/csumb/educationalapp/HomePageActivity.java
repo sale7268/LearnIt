@@ -94,5 +94,10 @@ public class HomePageActivity extends AppCompatActivity {
         });
     }
 
+    public void createPost(View view){
+        Intent intent = new Intent(HomePageActivity.this,CreatePostActivity.class);
+        startActivity(intent);
+    }
+
 
 }
