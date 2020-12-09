@@ -26,7 +26,7 @@ public class ReadCommentsActivity extends AppCompatActivity {
     ArrayList<Comment> commentsList = new ArrayList<>();
     String objectID;
     Button addCommentBtn;
-    Button returnBtn;
+    Button returnBtn, btnDeletePost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +97,15 @@ public class ReadCommentsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ReadCommentsActivity.this,HomePageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnDeletePost = findViewById(R.id.btnDeletePost);
+        btnDeletePost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ReadCommentsActivity.this, DeletePostConfirmActivity.class);
                 startActivity(intent);
             }
         });
