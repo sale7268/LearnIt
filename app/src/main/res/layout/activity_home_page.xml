@@ -37,6 +37,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="24dp"
             android:clickable="true"
+            android:onClick="createPost"
             app:srcCompat="@drawable/ic_addpost_foreground" />
 
         <ListView

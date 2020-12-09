@@ -47,7 +47,7 @@ public class CreatePostActivity extends AppCompatActivity {
                     myPost.put("createdBy",ParseUser.getCurrentUser().getUsername());
                     myPost.saveInBackground();
                     Toast.makeText(CreatePostActivity.this,"Post was submitted!",Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(CreatePostActivity.this,HomeActivity.class);
+                    Intent intent = new Intent(CreatePostActivity.this, HomePageActivity.class);
                     startActivity(intent);
                     finish();
                 }
