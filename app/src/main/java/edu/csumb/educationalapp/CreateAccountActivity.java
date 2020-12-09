@@ -54,7 +54,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     progress.dismiss();
                     if (e == null) {
                         Toast.makeText(CreateAccountActivity.this, "Welcome!", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(CreateAccountActivity.this, HomeActivity.class);
+                        Intent intent = new Intent(CreateAccountActivity.this, HomePageActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
