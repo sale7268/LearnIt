@@ -13,24 +13,30 @@
         android:layout_height="520dp"
         android:layout_weight="1"></ListView>
 
-    <TextView
-        android:id="@+id/course_grade"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Comment"
-        android:id="@+id/addCommentBtn" />
-
     <Button
         android:id="@+id/return_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="98dp"
+        android:layout_height="71dp"
+        android:background="@drawable/ic_menu_foreground"
         android:gravity="center_horizontal"
-        android:text="Return to Main Menu" />
+        android:translationX="150"
+        android:translationY="140" />
+
+    <Button
+        android:id="@+id/addCommentBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="76dp"
+        android:background="@drawable/ic_comment_foreground"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:translationY="65" />
+
+    <Button
+        android:id="@+id/btnDeletePost"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@android:drawable/ic_menu_delete"
+        android:translationX="300"
+        android:translationY="-10" />
 
 </LinearLayout>
