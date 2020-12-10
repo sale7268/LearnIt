@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#08017CFF"
     tools:context=".CreatePostActivity">
 
 
@@ -11,7 +12,7 @@
         android:id="@+id/etTitle"
         android:layout_width="240dp"
         android:layout_height="45dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="Title"
         android:inputType="textPersonName"
@@ -24,9 +25,9 @@
         android:id="@+id/etContent"
         android:layout_width="240dp"
         android:layout_height="45dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Content"
+        android:hint="Description"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -37,7 +38,7 @@
         android:id="@+id/tvPost"
         android:layout_width="164dp"
         android:layout_height="36dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="48dp"
         android:text="Create Post"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +55,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContent"
-        app:layout_constraintVertical_bias="0.207" />
+        app:layout_constraintTop_toBottomOf="@+id/addStepBtn"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="263dp"
+        android:layout_height="103dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etStep" />
+
+    <Button
+        android:id="@+id/addStepBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Add Step"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listView" />
+
+    <EditText
+        android:id="@+id/etStep"
+        android:layout_width="244dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Type Step"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etContent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

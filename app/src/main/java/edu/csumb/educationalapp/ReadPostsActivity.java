@@ -1,3 +1,4 @@
+/*
 package edu.csumb.educationalapp;
 
 import android.app.AlertDialog;
@@ -20,9 +21,11 @@ import java.util.List;
 
 public class ReadPostsActivity extends AppCompatActivity {
 
+
     ArrayList<Post> postsList = new ArrayList<>();
     ListView listView;
     static String objectID;
+    List<Step>stepsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,4 +85,6 @@ public class ReadPostsActivity extends AppCompatActivity {
         });
     }
 }
+
+     */
 
