@@ -1,3 +1,4 @@
+/*
 package edu.csumb.educationalapp;
 
 import android.app.ProgressDialog;
@@ -53,3 +54,5 @@ public class HomeActivity extends AppCompatActivity {
         progress.dismiss();
     }
 }
+
+ */

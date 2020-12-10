@@ -16,6 +16,9 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,21 +36,29 @@ public class HomePageActivity extends AppCompatActivity {
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
 
-        query.setLimit(10); // limit to at most 10 results
-
         try {
+            //Retrieve the Post that already has the steps
             List<ParseObject> results = query.find();
+
             for (ParseObject result : results) {
                 String title = result.getString("title");
                 String content = result.getString("content");
                 String createdBy = result.getString("createdBy");
                 String objectId = result.getObjectId();
 
-                Post post = new Post(objectId,title,content,createdBy);
-                postsList.add(post);
+                ArrayList<String>stepsList = new ArrayList<>();
+                JSONArray array = result.getJSONArray("steps");
 
+                if (array != null) {
+                    for (int i=0;i<array.length();i++){
+                        stepsList.add(array.getString(i));
+                    }
+                }
+
+                Post post = new Post(objectId,title,content,createdBy,stepsList);
+                postsList.add(post);
             }
-        } catch (ParseException e) {
+        } catch (ParseException | JSONException e) {
             e.printStackTrace();
         }
 
@@ -77,7 +88,7 @@ public class HomePageActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //saving the post that was clicked's ID to be used in the next activity
                 objectID = postsList.get(i).getObjectId();
-                //Toast.makeText(ReadPostsActivity.this, "clicked item:" + i + " " + postsList.get(i).toString(), Toast.LENGTH_LONG).show();
+
                 Intent intent = new Intent(HomePageActivity.this, ReadCommentsActivity.class);
                 startActivity(intent);
             }
