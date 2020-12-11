@@ -74,10 +74,8 @@ public class Post{
     @Override
     public String toString() {
         if(!concatStrings(stepsList).isEmpty()){
-            return "Title: " + title + "\n" + "Content:  " + content + "\n" +
-                    "Created By: " + createdBy + "\n" + concatStrings(stepsList) + "\n";
+            return "Created by: " + createdBy + "\n" + "Title: " + title + "\n" + "Content: " + content + "\n" + concatStrings(stepsList) + "\n";
         }
-        return "Title: " + title + "\n" + "Content:  " + content + "\n" +
-                "Created By: " + createdBy + "\n";
+        return "Created by: " + createdBy + "\n" + "Title: " + title + "\n" + "Content: " + content + "\n";
     }
 }
