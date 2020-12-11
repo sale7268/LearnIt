@@ -40,8 +40,6 @@ public class ReadCommentsActivity extends AppCompatActivity {
         ParseQuery<ParseObject> commentQuery = ParseQuery.getQuery("Comment");
         commentQuery.whereEqualTo("postID",objectID);
 
-        commentQuery.setLimit(10); // limit to at most 10 results
-
         try {
             List<ParseObject> results = commentQuery.find();
             for (ParseObject result : results) {
@@ -79,9 +77,6 @@ public class ReadCommentsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i,long l) {
-                //saving the post that was clicked's ID to be used in the next activity
-                Toast.makeText(ReadCommentsActivity.this, "clicked item:" + i + " " + commentsList.get(i).toString(), Toast.LENGTH_LONG).show();
-
             }
         });
 
