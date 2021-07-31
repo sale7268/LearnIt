@@ -1,6 +1,6 @@
 # LearnIt
 
-This is an reddit clone with a custom Parse backend that allows a user to post photosquestions with steps, view a global questions feed, and add comments/solutions!
+This is a reddit clone with a custom Parse backend that allows a user to post photosquestions with steps, view a global questions feed, and add comments/solutions!
 
 ## User Stories
 - [x] User create account
